@@ -10,8 +10,10 @@ test('addListener', function(t) {
   };
   var emitter = new DOMEventEmitter(div);
 
+  document.body.appendChild(div);
   emitter.addListener('click', fn);
   emitter.emitDOMEvent('click', 55);
+  document.body.removeChild(div);
 });
 
 test('once', function(t) {
@@ -23,9 +25,11 @@ test('once', function(t) {
     t.pass('Handled event once');
   };
 
+  document.body.appendChild(div);
   emitter.once('click', fn);
   emitter.emitDOMEvent('click');
   emitter.emitDOMEvent('click');
+  document.body.removeChild(div);
 });
 
 test('remove listener', function(t) {
@@ -42,6 +46,7 @@ test('remove listener', function(t) {
     t.pass('Handler called');
   }
 
+  document.body.appendChild(div);
   emitter.addListener('foo', failIfCalled);
   emitter.addListener('buz', failIfCalled);
   emitter.addListener('bar', barListener);
@@ -50,6 +55,7 @@ test('remove listener', function(t) {
   emitter.emitDOMEvent('bar');
   emitter.emitDOMEvent('buz');
   emitter.emitDOMEvent('foo');
+  document.body.removeChild(div);
 });
 
 test('remove listener in element without emitter', function(t) {
@@ -58,8 +64,10 @@ test('remove listener in element without emitter', function(t) {
   var div = document.createElement('div');
   var emitter = new DOMEventEmitter(div);
 
+  document.body.appendChild(div);
   emitter.removeAllListeners('foo');
   t.pass('No issues removing listener from element with no emitter');
+  document.body.removeChild(div);
 });
 
 test('Handle delegated events', function(t) {
@@ -121,10 +129,12 @@ test('Remove individual handler for specific event', function(t) {
     t.pass('Handler should be called once');
   }
 
+  document.body.appendChild(div);
   emitter.addListener('click', failIfCalled);
   emitter.addListener('click', shouldBeCalled);
   emitter.removeListener('click', failIfCalled);
   emitter.emitDOMEvent('click');
+  document.body.removeChild(div);
 });
 
 test('Remove all listeners', function(t) {
@@ -137,6 +147,7 @@ test('Remove all listeners', function(t) {
     t.fail('Handler should not be called');
   }
 
+  document.body.appendChild(div);
   emitter.addListener('click', failIfCalled);
   emitter.addListener('focus', failIfCalled);
   emitter.addListener('blur', failIfCalled);
@@ -145,6 +156,7 @@ test('Remove all listeners', function(t) {
   emitter.emitDOMEvent('focus');
   emitter.emitDOMEvent('blur');
   t.pass('No handlers called');
+  document.body.removeChild(div);
 });
 
 test('Handler context', function(t) {
@@ -167,4 +179,5 @@ test('Handler context', function(t) {
     t.equal(this.context, list);
   });
   aEmitter.emitDOMEvent('click');
+  document.body.removeChild(list);
 });

@@ -1,7 +1,7 @@
 {
   "name": "deemitter",
   "description": "DOM Event Handler using the EventEmitter interface",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -10,7 +10,7 @@
     "testling": "^1.7.1"
   },
   "scripts": {
-    "test": "browserify --debug test/*-test.js | testling -u
+    "test": "browserify --debug test/*-test.js | testling -u"
   },
   "testling": {
     "files": "test/*.js",
