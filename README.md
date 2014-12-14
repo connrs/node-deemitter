@@ -1,6 +1,6 @@
-# deemitter 1.0.1
+# deemitter
 
-DEEmitter is a module extracted from [Rye.js](http://ryejs.org/). It doesn't contain all of the features of the DOM Event Emitter from Rye but it is an implementation that is much closer to the standard EventEmitter API in node.js core.
+deemitter is a module extracted from [Rye.js](http://ryejs.com/). It doesn't contain all of the features of the DOM Event Emitter from Rye but it is an implementation that is much closer to the standard EventEmitter API in node.js core.
 
 ## Usage
 
@@ -38,4 +38,4 @@ Similar to the `trigger` method in the rye DOMEventEmitter, you may call `emitDO
 
 ## Licence
 
-This licence contains the same licence as the original rye project from which it was originally derived
+This licence contains the [same licence](https://github.com/ryejs/rye/blob/master/MIT-LICENSE) as the original rye project from which it was originally derived

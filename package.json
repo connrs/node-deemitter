@@ -1,7 +1,7 @@
 {
   "name": "deemitter",
   "description": "DOM Event Handler using the EventEmitter interface",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -13,7 +13,7 @@
     "test": "browserify --debug test/*-test.js | testling -u"
   },
   "testling": {
-    "files": "test/*.js",
+    "files": "test/*-test.js",
     "browsers": [
       "ie/6..latest",
       "chrome/22..latest",
@@ -29,8 +29,10 @@
     "type": "git",
     "url": "git://github.com/connrs/node-deemitter.git"
   },
-  "authors": [
-    "Paul Connolley @connrs <paul.connolley@gmail.com)"
-    ],
-  "license": "MIT (ricardo.mit-license.org)"
+  "author": {
+    "name": "connrs",
+    "url": "http://connrs.me.uk/",
+    "email": "paul.connolley@gmail.com"
+  },
+  "license": "http://ricardo.mit-license.org/"
 }
